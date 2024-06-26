@@ -1,3 +1,4 @@
+@import "mixins/color";
 @import "mixins/mixins";
 @import "common/var";
 @import "common/transition";
@@ -119,5 +120,5 @@
 }
 
 .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
-  background-color: mix($--color-white, $--color-primary, 92%);
+  background-color: color-mixing($--color-white, $--color-primary, 92%);
 }

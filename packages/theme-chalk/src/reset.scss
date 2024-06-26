@@ -1,4 +1,5 @@
 @import 'common/var';
+@import "mixins/color";
 
 body {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
@@ -14,11 +15,11 @@ a {
 
   &:hover,
   &:focus {
-    color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
+    color: color-mixing($--color-white, $--color-primary, $--button-hover-tint-percent);
   }
 
   &:active {
-    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    color: color-mixing($--color-black, $--color-primary, $--button-active-shade-percent);
   }
 }
 

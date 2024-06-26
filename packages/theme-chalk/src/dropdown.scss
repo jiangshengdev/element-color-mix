@@ -1,3 +1,4 @@
+@import "mixins/color";
 @import "mixins/mixins";
 @import "common/var";
 @import "button";
@@ -32,11 +33,11 @@
       top: $gap;
       bottom: $gap;
       left: 0;
-      background: mix(white, transparent, 50%);
+      background: color-mixing(white, transparent, 50%);
     }
 
     &.el-button--default::before {
-      background: mix($--button-default-border-color, transparent, 50%);
+      background: color-mixing($--button-default-border-color, transparent, 50%);
     }
 
     &:hover {

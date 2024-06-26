@@ -1,0 +1,29 @@
+/**
+ * Mixes two colors together. Specifically, takes the average of each of the
+ * RGB components, optionally weighted by the given percentage. The opacity
+ * of the colors is also considered when weighting the components.
+ *
+ * The weight specifies the amount of the first color that should be included
+ * in the returned color. The default, `50%`, means that half the first color
+ * and half the second color should be used. `25%` means that a quarter of
+ * the first color and three quarters of the second color should be used.
+ *
+ * @example
+ * mix(#f00, #00f) => #7f007f
+ * mix(#f00, #00f, 25%) => #3f00bf
+ * mix(rgba(255, 0, 0, 0.5), #00f) => rgba(63, 0, 191, 0.75)
+ * @overload mix($color1, $color2, $weight: 50%)
+ * @param $color1 [Sass::Script::Value::Color]
+ * @param $color2 [Sass::Script::Value::Color]
+ * @param $weight [Sass::Script::Value::Number] The relative weight of each
+ * color. Closer to `100%` gives more weight to `$color1`, closer to `0%`
+ * gives more weight to `$color2`
+ * @return [Sass::Script::Value::Color]
+ * @raise [ArgumentError] if `$weight` is out of bounds or any parameter is
+ * the wrong type
+ */
+@function color-mixing($color1, $color2, $weight: 50%) {
+  $color1-weight: $weight;
+  $color2-weight: 100% - $weight;
+  @return color-mix(in srgb, $color1 $color1-weight, $color2 $color2-weight);
+}

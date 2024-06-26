@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import "common/var";
 @import "mixins/button";
+@import "mixins/color";
 @import "mixins/mixins";
 @import "mixins/utils";
 
@@ -35,8 +36,8 @@
   }
 
   &:active {
-    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-    border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    color: color-mixing($--color-black, $--color-primary, $--button-active-shade-percent);
+    border-color: color-mixing($--color-black, $--color-primary, $--button-active-shade-percent);
     outline: none;
   }
 
@@ -60,15 +61,15 @@
 
     &:active {
       background: $--color-white;
-      border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      border-color: color-mixing($--color-black, $--color-primary, $--button-active-shade-percent);
+      color: color-mixing($--color-black, $--color-primary, $--button-active-shade-percent);
       outline: none;
     }
   }
 
   @include when(active) {
-    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-    border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    color: color-mixing($--color-black, $--color-primary, $--button-active-shade-percent);
+    border-color: color-mixing($--color-black, $--color-primary, $--button-active-shade-percent);
   }
 
   @include when(disabled) {
@@ -163,12 +164,12 @@
 
     &:hover,
     &:focus {
-      color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
+      color: color-mixing($--color-white, $--color-primary, $--button-hover-tint-percent);
       border-color: transparent;
       background-color: transparent;
     }
     &:active {
-      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      color: color-mixing($--color-black, $--color-primary, $--button-active-shade-percent);
       border-color: transparent;
       background-color: transparent;
     }
@@ -236,7 +237,7 @@
       z-index: 1;
     }
   }
-  
+
   & > .el-dropdown {
     & > .el-button {
       border-top-left-radius: 0;
